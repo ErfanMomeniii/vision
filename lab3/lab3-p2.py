@@ -3,7 +3,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-# simple version without specifying bins
 def find_a_and_b(arr=[], vmin=0, vmax=0):
     arr[arr < vmin] = vmin
     arr[arr > vmax] = vmax

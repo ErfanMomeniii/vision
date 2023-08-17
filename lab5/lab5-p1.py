@@ -1,0 +1,22 @@
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+
+I = cv2.imread("agha-bozorg.jpg", cv2.IMREAD_GRAYSCALE)
+Dx = np.array([[-1, 0, 1],
+               [-2, 0, 2],
+               [-1, 0, 1]])
+Ix = cv2.filter2D(I, cv2.CV_16S, Dx)
+print(Ix.dtype)
+Ix2 = cv2.Sobel(I, cv2.CV_16S, 1, 0)
+print(np.abs(Ix - Ix2).max())
+f, axes = plt.subplots(2, 2)
+axes[0, 0].imshow(I, cmap='gray')
+axes[0, 0].set_title("Original Image")
+axes[0, 1].imshow(Ix, cmap='gray')
+axes[0, 1].set_title("Ix (cv2.filter2D)")
+axes[1, 0].imshow(Ix2, cmap='gray')
+axes[1, 0].set_title("Ix2 (cv2.Sobel)")
+axes[1, 1].imshow(np.abs(Ix), cmap='gray')
+axes[1, 1].set_title("abs(Ix)")
+plt.show()

@@ -4,9 +4,6 @@ import cv2
 # create a VideoCapture object
 cap = cv2.VideoCapture('eggs.avi')
 
-# sometimes this is needed:
-#if not cap.isOpened():
-#    cap.open();
 
 while True:
 
