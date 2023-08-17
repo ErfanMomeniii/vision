@@ -6,7 +6,7 @@ I = cv2.imread("agha-bozorg.jpg", cv2.IMREAD_GRAYSCALE)
 Dx = np.array([[-1, 0, 1],
                [-2, 0, 2],
                [-1, 0, 1]])
-Ix = cv2.filter2D(I, cv2.CV_16S, Dx)
+Ix = cv2.filter2D(I, -1, Dx)
 f, axes = plt.subplots(2, 2)
 axes[0, 0].imshow(I)
 axes[0, 0].set_title("Original Image")
